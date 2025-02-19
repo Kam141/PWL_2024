@@ -85,3 +85,15 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [AboutController::class, 'about']);
 Route::get('/articles/{id}', [ArtcleController::class, 'articles']);
 
+// praktikum resource Controller
+use App\Http\Controllers\PhotoController;
+Route::resource('photos', PhotoController::class);
+
+//d
+Route::resource('photos', PhotoController::class)->only([
+    'index', 'show'
+   ]);
+Route::resource('photos', PhotoController::class)->except([
+    'create', 'store', 'update', 'destroy'
+   ]);
+      
