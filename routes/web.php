@@ -24,17 +24,17 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //d
-Route::get('/world', function ()  {
+Route::get('/world', function () {
     return 'World';
 });
 
 //f
-Route::get('/', function ()  {
+Route::get('/', function () {
     return 'Selamat Datang';
 });
 
 //g
-Route::get('/about', function ()  {
+Route::get('/about', function () {
     return '2341720175_Kamila habiba Putri Ananta';
 });
 
@@ -46,12 +46,12 @@ Route::get('/about', function ()  {
 
 //d
 Route::get('/post/{post}/comments/{comment}', function ($postId, $commentId) {
-    return 'Pos ke-'.$postId." Komentar ke-".$commentId;
+    return 'Pos ke-' . $postId . " Komentar ke-" . $commentId;
 });
 
 //f
 Route::get('/articles/{id}', function ($id) {
-    return 'Halaman Artikel dengan ID '.$id;
+    return 'Halaman Artikel dengan ID ' . $id;
 });
 
 //praktikum Optional Parameters
@@ -61,8 +61,8 @@ Route::get('/articles/{id}', function ($id) {
 // });
 
 //d
-Route::get('/user/{name?}', function ($name='John') {
-    return 'Nama saya '.$name;
+Route::get('/user/{name?}', function ($name = 'John') {
+    return 'Nama saya ' . $name;
 });
 
 //praktikum controller 
@@ -87,13 +87,25 @@ Route::get('/articles/{id}', [ArtcleController::class, 'articles']);
 
 // praktikum resource Controller
 use App\Http\Controllers\PhotoController;
+
 Route::resource('photos', PhotoController::class);
 
 //d
 Route::resource('photos', PhotoController::class)->only([
-    'index', 'show'
-   ]);
+    'index',
+    'show'
+]);
 Route::resource('photos', PhotoController::class)->except([
-    'create', 'store', 'update', 'destroy'
-   ]);
-      
+    'create',
+    'store',
+    'update',
+    'destroy'
+]);
+
+
+//praktikum View 
+//membuat view
+//b
+Route::get('/greeting', function () {
+    return view('hello', ['name' => 'kamila']);
+});
