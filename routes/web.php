@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 //praktikum basic routing
 //b
-Route::get('/hello', function ()  {
-    return 'Hello World';
-});
+// Route::get('/hello', function ()  {
+//     return 'Hello World';
+// });
 
 //d
 Route::get('/world', function ()  {
@@ -64,3 +64,24 @@ Route::get('/articles/{id}', function ($id) {
 Route::get('/user/{name?}', function ($name='John') {
     return 'Nama saya '.$name;
 });
+
+//praktikum controller 
+use App\Http\Controllers\WelcomeController;
+
+//d
+Route::get('/hello', [WelcomeController::class, 'hello']);
+
+//f
+Route::get('/', [WelcomeController::class, 'index']);
+Route::get('/about', [WelcomeController::class, 'about']);
+Route::get('/articles/{id}', [WelcomeController::class, 'articles']);
+
+//g
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ArtcleController;
+use App\Http\Controllers\AboutController;
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/articles/{id}', [ArtcleController::class, 'articles']);
+
