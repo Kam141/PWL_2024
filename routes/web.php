@@ -13,6 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+//praktikum basic routing
+//b
+Route::get('/hello', function ()  {
+    return 'Hello World';
+});
+
+//d
+Route::get('/world', function ()  {
+    return 'World';
+});
+
+//f
+Route::get('/', function ()  {
+    return 'Selamat Datang';
+});
+
+//g
+Route::get('/about', function ()  {
+    return '2341720175_Kamila habiba Putri Ananta';
 });
