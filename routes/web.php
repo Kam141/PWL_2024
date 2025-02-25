@@ -65,6 +65,11 @@ Route::get('/user/{name?}', function ($name = 'John') {
     return 'Nama saya ' . $name;
 });
 
+Route::get('/user/profile', function() { 
+    // 
+})->name('profile'); 
+
+
 //praktikum controller 
 use App\Http\Controllers\WelcomeController;
 
